@@ -1,25 +1,21 @@
-import { Component, Inject } from '@angular/core';
-import { User } from '../user/user';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { HttpService } from '../../services/http.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgModule } from '@angular/core';
 import { Quest } from '../quest/quest';
 import { Bonus } from '../bonus/bonus';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-
+  
 })
 export class HomeComponent {
   public isCollapsed = true;
   public isCollapsedB = true;
   public isCollapsedC = true;
   public isCollapsedD = true;
+  public isCollapsedE = true;
   public quests: Quest[];
   public bonuses: Bonus[];
 
@@ -34,7 +30,6 @@ export class HomeComponent {
       this.bonuses = result;
     }, error => console.error(error));
   }
-
 
 
 }

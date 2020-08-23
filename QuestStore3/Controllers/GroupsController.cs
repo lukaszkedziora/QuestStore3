@@ -182,34 +182,38 @@ namespace QuestStore3.Data
         //    return View(@group);
         //}
 
-        //[Authorize(Roles = "Admin,Mentor")]
-        //public IActionResult AddToGroup()
-        //{
+        [Authorize(Roles = "Admin,Mentor")]
+        [HttpGet]
+        [Route("get-to-group")]
+        public async Task<IEnumerable<User>> AddToGroup()
+        {
 
-        //    return View(_context.User.Where(s => s.Role == Role.Student).ToList());
+            return await _context.User.Where(s => s.Role == Role.Student).ToListAsync();
 
-        //}
+        }
 
-        //[Authorize(Roles = "Admin,Mentor")]
-        //[HttpPost]
-        //public async Task<IActionResult> AddToGroup(int id, List<User> usersList)
-        //{
-        //    foreach (var user in usersList)
-        //    {
-        //        _groupAssignment.UserID = user.ID;
-        //        _groupAssignment.GroupID = id;
-        //        _groupAssignment.ID = 0;
+        [Authorize(Roles = "Admin,Mentor")]
+        [HttpPost]
+        [Route("post-to-group")]
 
-        //        if (_context.GroupAssignment.Where(m => m.UserID == user.ID && m.GroupID == id).FirstOrDefault() == null)
-        //        {
-        //            _context.Add(_groupAssignment);
-        //            await _context.SaveChangesAsync();
-        //        }
+        public async Task<IActionResult> AddToGroup(int id, List<User> usersList)
+        {
+            foreach (var user in usersList)
+            {
+                _groupAssignment.UserID = user.ID;
+                _groupAssignment.GroupID = id;
+                _groupAssignment.ID = 0;
 
-        //    }
+                if (_context.GroupAssignment.Where(m => m.UserID == user.ID && m.GroupID == id).FirstOrDefault() == null)
+                {
+                    _context.Add(_groupAssignment);
+                    await _context.SaveChangesAsync();
+                }
 
-        //    return RedirectToAction(nameof(Index));
-        //}
+            }
+
+            return null;
+        }
 
         //[Authorize(Roles = "Admin,Mentor")]
         //// GET: Groups/Delete/5

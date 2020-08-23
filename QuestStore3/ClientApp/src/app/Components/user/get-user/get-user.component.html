@@ -1,4 +1,4 @@
-<div id="band" class="container-no-homepages text-center">
+<div class="container-no-homepages">
 
   <h1 id="tableLabel">Users</h1>
 
@@ -9,6 +9,7 @@
   <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
     <thead>
       <tr>
+        <th> Foto </th>
         <th> Firstname</th>
         <th> Lastname</th>
         <th> Email</th>
@@ -18,16 +19,14 @@
         <th> Status</th>
         <th> Role</th>
         <th> Registration</th>
-
-
-
-
-
-
+        <th>
+        <button type="button" class="btn btn-outline-info btn-sm mr-1">Add student</button>
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
+        <td><img src="/team/null.jpg" class="thumbnail-login" alt="foto" width="100" height="50"></td>
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.email }}</td>
@@ -37,10 +36,11 @@
         <td>{{ user.status }}</td>
         <td>{{ user.role }}</td>
         <td>{{ user.registrationDate }}</td>
-
-
-
-
+        <td>
+          <button type="button" class="btn btn-outline-dark btn-sm mr-1">Edit</button>
+          <button type="button" class="btn btn-outline-info btn-sm mr-1">Details</button>
+          <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>

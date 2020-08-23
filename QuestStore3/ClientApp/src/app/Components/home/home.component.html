@@ -1,14 +1,15 @@
     <!-- Slider -->
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<body id="myPage" >
   <div class="container-slider">
-    <ngb-carousel [showNavigationArrows]="true"
+    <ngb-carousel #mycarousel
+                  [showNavigationArrows]="true"
                   [showNavigationIndicators]="true"
                   interval="9000"
                   [keyboard]="true"
                   [pauseOnHover]="false"
                   [wrap]="true"
                   [activeId]="'slideTwo'">
-      <ng-template ngbSlide>
+      <ng-template ngbSlide id="slideOne">
         <div class="picsum-img-wrapper">
           <img src="/img/slider8.jpg" alt="Random first slide">
         </div>
@@ -17,14 +18,13 @@
           <p><a href="#quests">let's try here ---</a></p>
         </div>
       </ng-template>
-      <ng-template ngbSlide>
+      <ng-template ngbSlide id="slideTwo">
         <div class="picsum-img-wrapper">
           <img src="/img/slider10.jpg" alt="Random first slide">
         </div>
         <div class="carousel-caption">
           <h3>If you already have tons of golden coins you can buy some bonuses!</h3>
           <p><a href="#bonuses">let's try here --- </a></p>
-
         </div>
       </ng-template>
     </ngb-carousel>
@@ -32,17 +32,41 @@
 
   <!-- About Queststore3, The team -->
 
-  <div id="about" class="container text-center">
-    <h3>About Quest Store 3 </h3>
-    <p>We have created a fictional Quest Store website.</p>
+  <div id="about" class="container">
+    <h3 class="text-center">About Quest Store 3 </h3>
+    <p>
+      <b>Greetings web explorers (hopefully not Internet Explorers)!</b>
+      <br><br>
+      this page has several functions, it's a fictional quest and bonus store, but also our demo website and challenge for you. A the bottom of this section you will find login and password to the app.
+      It doesn't matter if you are our friend, the CEO from Silicon Valley or onset and decent businessman or businesswoman form Toruń. You should login and be ready for what will happen. If this Demo will be satisfying for you and you admire chiwawa as we do, please write to us. It will be pleasure
+      to develop some web pages or more advance web application for you. You can login as the Admin, Mentor or Student.
+      <br>
+      <br>
+      Have Fun!
+      <br>
+      The Team
+    </p>
+    <button type="button" class="btn text-center" (click)="isCollapsedE = !isCollapsedE"
+            [attr.aria-expanded]="isCollapsedE" aria-controls="collapseExample">
+      Login
+    </button>
+    <div id="collapseExample" [ngbCollapse]="isCollapsedE">
+      <div class="card ">
+        <div class="card-body">
+          Admin --> Login: Pass: <br>
+          Mentor --> Login: Pass: <br>
+          Student --> Login Pass: <br>
+        </div>
+      </div>
+    </div>
     <br>
     <div id="team">
-      <h3>The Team</h3>
+      <h3 class="text-center">The Team</h3>
       <br>
-      <div class="row">
+      <div class="row text-center">
         <div class="col">
           <p>
-            <img src="/img/lukasz_kedziora.jpg" class="rounded-circle person" alt="Łukasz" width="255" height="255">
+            <img src="/team/lukasz_kedziora.jpg" class="rounded-circle person" alt="Łukasz" width="255" height="255">
             <br><br>
             <button type="button" class="btn pull-right" (click)="isCollapsed = !isCollapsed"
                     [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample">
@@ -59,7 +83,7 @@
         </div>
         <div class="col">
           <p>
-            <img src="" class="img-circle person" alt="Foto Radek" width="255" height="255">
+            <img src="/team/radek.jpg" class="rounded-circle person" alt="Foto Radek" width="255" height="255">
             <br><br>
             <button type="button" class="btn pull-right" (click)="isCollapsedB = !isCollapsedB"
                     [attr.aria-expanded]="isCollapsedB" aria-controls="collapseExample">
@@ -76,7 +100,7 @@
         </div>
         <div class="col">
           <p>
-            <img src="" class="img-circle person" alt="Foto Adrian" width="255" height="255">
+            <img src="/team/adrian.jpg" class="rounded-circle person" alt="Foto Adrian" width="255" height="255">
             <br><br>
             <button type="button" class="btn pull-right" (click)="isCollapsedC = !isCollapsedC"
                     [attr.aria-expanded]="isCollapsedC" aria-controls="collapseExample">
@@ -93,7 +117,7 @@
         </div>
         <div class="col">
           <p>
-            <img src="" class="img-circle person" alt="Foto Tomek" width="255" height="255">
+            <img src="/team/null.jpg" class="rounded-circle person" alt="Foto Tomek" width="255" height="255">
             <br><br>
             <button type="button" class="btn pull-right" (click)="isCollapsedD = !isCollapsedD"
                     [attr.aria-expanded]="isCollapsedD" aria-controls="isCollapsedD">
@@ -121,7 +145,7 @@
       <div class="row text-center">
         <div class="col-sm-4" *ngFor="let quest of quests">
           <div class="thumbnail img-thumbnail">
-            <img src="/img/quests/{{quest.fileString}}" alt="foto" width="400" height="300">
+            <img src="/quests/{{quest.fileString}}" alt="foto" width="400" height="300">
             <p><strong>{{quest.name}}</strong></p>
             <p>{{quest.description}}</p>
             <button class="btn" data-toggle="modal">More info</button>
@@ -139,7 +163,7 @@
       <div class="row text-center">
         <div class="col-sm-4" *ngFor="let bonus of bonuses">
           <div class="thumbnail">
-            <img src="/img/bonuses/{{bonus.fileString}}" alt="foto" width="400" height="300">
+            <img src="/bonuses/{{bonus.fileString}}" alt="foto" width="400" height="300">
             <p><strong>{{bonus.name}}</strong></p>
             <p>{{bonus.description}}</p>
             <button class="btn" data-toggle="modal">More info</button>
@@ -152,13 +176,13 @@
 
   <!-- Container (Contact Section) -->
   <div id="contact" class="container">
-    <h3 class="text-center">Contact</h3>
+    <h3 class="text-center">Contact us</h3>
 
     <div class="row">
       <div class="col-md-4">
         <p>Fan? Drop a note.</p>
-        <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
-        <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span>Poland</p>
+        <p><span class="glyphicon glyphicon-phone"></span>Phone: +48 696-687-486</p>
         <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
       </div>
       <div class="col-md-8">

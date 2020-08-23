@@ -1,0 +1,54 @@
+<div class="container-no-homepages">
+
+  <h1 id="tableLabel">My students</h1>
+
+  <p>This component demonstrates all available your students.</p>
+
+  <p *ngIf="!users"><em>Loading...</em></p>
+
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
+
+    <thead>
+      <tr>
+        <th> Firstname</th>
+        <th> Lastname</th>
+        <th> E-mail</th>
+        <th> Phone number</th>
+        <th> Address</th>
+        <th> Date</th>
+        <th> Postcode</th>
+        <th> Status</th>
+        <th>
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        </th>
+
+      </tr>
+    </thead>
+<tbody>
+  <tr *ngFor="let user of users">
+    <td>{{ user.firstName }}</td>
+    <td>{{ user.lastName }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phoneNumber }}</td>
+    <td>{{ user.adress }}</td>
+    <td>{{ user.registrationDate }}</td>
+    <td>{{ user.postcode }}</td>
+    <td>{{ user.status }}</td>
+    <td>{{ user.id }}</td>
+
+    <td>
+      <form class="form-group" [formGroup]="checkBox" (ngSubmit)="onSubmit()">
+        <input formControlName="checkboxanswer" type="checkbox" />
+        <!--<input formControlName="id" type="text" value="{{user.id}}"  />-->
+        <input type="submit" value="Save" class="btn btn-primary" />
+
+      </form>
+      
+    </td>
+  </tr>
+</tbody>
+  </table>
+
+</div>

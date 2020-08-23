@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';  
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
@@ -38,15 +39,14 @@ import { FooterComponent } from './Components/footer/footer.component';
     AddGroupComponent,
     DetailsGroupComponent,
     FooterComponent,
-
     
   ],
   imports: [
+    NgbModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -59,10 +59,11 @@ import { FooterComponent } from './Components/footer/footer.component';
       { path: 'get-my-groups', component: GetMyGroupsComponent },
       { path: 'add-group', component: AddGroupComponent },
       { path: 'details-group/:id', component: DetailsGroupComponent },
+    ]),
+    
 
-
-    ])
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

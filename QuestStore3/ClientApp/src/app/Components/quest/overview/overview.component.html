@@ -9,24 +9,28 @@
   <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="quests">
     <thead>
       <tr>
+        <th>Foto</th>
         <th>Description</th>
         <th>Price</th>
         <th>Amount</th>
         <th>Category</th>
+        <th><button type="button" class="btn btn-outline-info btn-sm mr-1">Add quest</button></th>
 
 
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let quest of quests">
+        <td><img src="/quests/{{quest.fileString}}" class="thumbnail-login" alt="foto" width="100" height="50"></td>
         <td>{{ quest.description }}</td>
         <td>{{ quest.price }}</td>
         <td>{{ quest.amount }}</td>
         <td>{{ quest.category }}</td>
-  
-
-
-
+        <td>
+          <button type="button" class="btn btn-outline-dark btn-sm mr-1">Edit</button>
+          <button type="button" class="btn btn-outline-info btn-sm mr-1">Details</button>
+          <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>

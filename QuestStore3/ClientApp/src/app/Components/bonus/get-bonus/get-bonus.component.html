@@ -9,19 +9,30 @@
   <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bonuses">
     <thead>
       <tr>
+        <th>Foto</th>
         <th>Description</th>
         <th>Price</th>
         <th>Amount</th>
-      </tr>
+        <th>Category</th>
+        <th><button type="button" class="btn btn-outline-info btn-sm mr-1">Add student</button></th>
+
+
+</tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let bonus of bonuses">
+        <td><img src="/bonuses/{{bonus.fileString}}" class="thumbnail-login" alt="foto" width="100" height="50"></td>
         <td>{{ bonus.description }}</td>
         <td>{{ bonus.price }}</td>
         <td>{{ bonus.amount }}</td>
+        <td>{{ bonus.category }}</td>
 
-
+        <td>
+          <button type="button" class="btn btn-outline-dark btn-sm mr-1">Edit</button>
+          <button type="button" class="btn btn-outline-info btn-sm mr-1">Details</button>
+          <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>

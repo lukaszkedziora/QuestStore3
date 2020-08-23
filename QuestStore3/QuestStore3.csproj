@@ -10,6 +10,7 @@
 
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <UserSecretsId>83ffef0a-6bd7-4d07-8e54-fb5e51017933</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,6 +41,7 @@
     <None Remove="ClientApp\src\app\Components\quest\quest.ts" />
     <None Remove="ClientApp\src\app\Components\user\get-user\userFull.ts" />
     <None Remove="ClientApp\src\app\Components\user\user.ts" />
+    <None Remove="ClientApp\src\app\services\app.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +51,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\Components\quest\quest.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Components\user\usersFull.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Components\user\user.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\app.module.ts" />
   </ItemGroup>
 
   <ItemGroup>

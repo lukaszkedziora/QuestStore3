@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GetMyGroupsComponent {
   myGroup: Group[];
-  public isCollapsed = false;
+  public isCollapsed = true;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Group[]>(baseUrl + 'api/groups').subscribe(result => {

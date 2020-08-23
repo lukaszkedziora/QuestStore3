@@ -2,6 +2,7 @@
 
 import 'zone.js/dist/zone-testing';
 import { getTestBed } from '@angular/core/testing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting

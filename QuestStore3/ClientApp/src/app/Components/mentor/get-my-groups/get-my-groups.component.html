@@ -9,9 +9,11 @@
   <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="myGroup">
     <thead>
       <tr>
+        <th>Foto</th>
         <th> Group ID</th>
         <th> Name</th>
         <th> Description</th>
+
         <th>
           <button type="button" class="btn btn-outline-primary" [routerLinkActive]="['link-active']" [routerLink]="['/add-group']">Create new group</button>
         </th>
@@ -19,11 +21,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of myGroup">
+        <td><img  src="/team/null.jpg" class="thumbnail-login" alt="foto" width="100" height="50"></td>
         <td>{{ user.groupID }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.description }}</td>
         <td>
-          <button type="button" class="btn btn-outline-success btn-sm mr-1">Add student</button>
+          <button type="button" class="btn btn-outline-info btn-sm mr-1" [routerLinkActive]="['link-active']" [routerLink]="['/add-students-group/', user.groupID]">Add student</button>
           <button type="button" class="btn btn-outline-dark btn-sm mr-1">Edit</button>
           <button type="button" class="btn btn-outline-info btn-sm mr-1" [routerLinkActive]="['link-active']" [routerLink]="['/details-group/', user.groupID]">Details</button>
           <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
@@ -32,6 +35,3 @@
     </tbody>
   </table>
   </div>
-
-
-
