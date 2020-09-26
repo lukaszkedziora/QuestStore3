@@ -1,6 +1,6 @@
 # QuestStore3
 
-![alt hydro1](http://www.lukaszkedziora.com/wp-content/uploads/2020/09/qs1.jpg)
+![alt quest1](http://www.lukaszkedziora.com/wp-content/uploads/2020/09/qs1.jpg)
 
 The project is an MVC website written in C# based on REST API architecture and SPA front. The application offers several functionalities such as: choosing  quests, buying bonuses, earning golden coins. The page gives you the opportunity to login and register as Admin, Mentor or Student. Each of these roles has a personalized menu. Admin has full CRUD options regarding students, mentors, groups, bonuses, and quests. Mentors have the same privilege as Admin with one exception only - users administration. Finally, students can view their accounts, buy bonuses, and choose quests.     
 
