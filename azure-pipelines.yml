@@ -23,7 +23,8 @@ steps:
 
 - task: Npm@1
   inputs:
-    command: 'install'
+    command: 'custom'
+    customCommand: 'install --global --production windows-build-tools'
     
 - task: VSBuild@1
   inputs:
