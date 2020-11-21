@@ -20,11 +20,6 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'install --global --production windows-build-tools'
     
 - task: VSBuild@1
   inputs:
